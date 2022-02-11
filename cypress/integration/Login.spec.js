@@ -6,9 +6,9 @@ context('Realizar login no sistema', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
     });
 
-    // afterEach(() => {
-    //  cy.screenshot()
-    //  });
+   // afterEach(() => {
+    //    cy.screenshot()
+    //});
 
     it('Realizar login com sucesso', () => {
         cy.get('#username').type('aluno_ebac@teste.com')

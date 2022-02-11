@@ -1,12 +1,14 @@
 /// <reference types="cypress" />
 
-
-
 describe('Produtos', () => {
 
-    it('Selecionar produto', () => {
+    beforeEach(() => {
         cy.visit('http://lojaebac.ebaconline.art.br/?product_cat=tops&s=&post_type=product')
     });
+
+   // afterEach(() => {
+   //     cy.screenshot()
+  //  });
 
     it('Selecionar produto', () => {
         cy.get('[class="product-block grid"]')
@@ -16,6 +18,7 @@ describe('Produtos', () => {
 
     it('Adicionar produto no carrinho', () => {
         var quantidade = 20
+        cy.get('[class="product-block grid"]').contains('Sparta Gym Tank').click()
         cy.get('.button-variable-item-L').click()
         cy.get(':nth-child(2) > .value > .variable-items-wrapper > .variable-item').click()
         cy.get('.input-text').clear().type(quantidade)

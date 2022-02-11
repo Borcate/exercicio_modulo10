@@ -7,6 +7,10 @@ context('Realizar cadastro no sistema', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
     });
 
+  //  afterEach(() => {
+   //     cy.screenshot()
+ //   });
+
     it('Cadastrar + Preencher cadastro', () => {
         cy.get('#reg_email').type(faker.internet.email())
         cy.get('#reg_password').type('@teste123456')
@@ -18,7 +22,7 @@ context('Realizar cadastro no sistema', () => {
         cy.get('#account_last_name').type(faker.name.lastName())
         cy.get('.woocommerce-Button').click()
 
-        cy.get('.woocommerce-message').click()
+        cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.')
 
     });
 
